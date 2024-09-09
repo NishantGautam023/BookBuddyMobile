@@ -1,6 +1,7 @@
-import { View, StyleSheet, Button}    from 'react-native';
+import { View, StyleSheet}    from 'react-native';
 import {theme} from "@/theme"
 import {useUserStore} from '@/store/userStore';
+import BookBuddyButton from '@/components/BookBuddyButton';
 
 export default function ProfileScreen() {
   const toggleHasOnboarded = useUserStore((store) => store.toggleHasOnboarded);
@@ -9,7 +10,7 @@ export default function ProfileScreen() {
 
   return (
     <View style={styles.container}>
-      <Button title="Back to onboarding" onPress={toggleHasOnboarded}  />
+      <BookBuddyButton title="Back to onboarding" onPress={toggleHasOnboarded}  />
     </View>
   );
 }
