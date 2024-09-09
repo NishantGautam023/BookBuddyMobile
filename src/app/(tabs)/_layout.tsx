@@ -2,17 +2,16 @@ import { Redirect, Tabs } from 'expo-router';
 import {theme} from "@/theme"
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 import Feather from '@expo/vector-icons/Feather';
-import {Text} from "react-native"
+import {useUserStore} from '@/store/userStore';
 
 
-const hasUserFinishedOnboarding = true
 
 export default function Layout() {
 
+  const hasFinishedOnboarding = useUserStore((state) => state.hasFinishedOnboarding)
 
-
-  if(!hasUserFinishedOnboarding) {
-    return <Redirect href="/onBoarding" />
+  if(!hasFinishedOnboarding) {
+    return <Redirect href="/onboarding" />
   }
 
   return (
