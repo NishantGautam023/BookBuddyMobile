@@ -1,8 +1,11 @@
-import {  View, StyleSheet,  } from "react-native";
+import {   StyleSheet} from "react-native";
 import { theme } from "@/theme";
 import {useUserStore} from '@/store/userStore';
 import {useRouter} from "expo-router"
 import BookBuddyButton from '@/components/BookBuddyButton';
+import {LinearGradient} from 'expo-linear-gradient';
+import {StatusBar} from "expo-status-bar"
+
 
 export default function OnboardingScreen() {
   const router = useRouter();
@@ -15,9 +18,15 @@ export default function OnboardingScreen() {
   };
 
   return (
-    <View style={styles.container}>
-    <BookBuddyButton title="Let me In" onPress={handlePress} />
-    </View>
+    <LinearGradient
+      style={styles.container}
+      start={{x: 0, y: 0}}
+      end={{x:1, y: 1}}
+      colors={[theme.colorGreen, theme.colorAppleGreen, theme.colorLimeGreen]}
+    >
+      <StatusBar style="light" />
+      <BookBuddyButton title="Let me In" onPress={handlePress} />
+    </LinearGradient>
   );
 }
 
